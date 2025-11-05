@@ -22,13 +22,13 @@ To run:
    
    b) Run script, I usually comment out the functions for wheel_psth_mvb and FP_sig_spots_mvb for speed. 
    
-   c) The 100 trials data should now be saved in a new folder: CombinedData > "experiment" > "group". To further analyze, load up this .m file and adjust trial window with the variables Tstart and Tfinish (start trial and end trial) an re-run FP_psth_mvb in command window.
+   c) The 100 trials data should now be saved in a new folder: CombinedData > "experiment" > "group". To analyze specific trial windows, load up this .m file and adjust trial window with the variables Tstart (start trial), Tfinish (end trial), and re-run FP_psth_mvb in command window.
 
 7. Key Data saved in workspace matrix "ANALYSIS_FINAL":
 
    a) rats: subject csv names, dates, etc. This order is conserved across data structures. 
 
-   b) ZscoreMeanStress: each animal's mean trace from -5s to +5s from onset/offset from Tstart to Tfinish, normalized dF (z-score).
+   b) ZscoreMeanStress: each animal's mean trace from -5s to +5s of event from Tstart to Tfinish, normalized dF (z-score).
 
    c) AUC: each animals area under the curve of mean trace
 
