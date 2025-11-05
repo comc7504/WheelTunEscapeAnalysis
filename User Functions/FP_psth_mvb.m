@@ -33,6 +33,7 @@ fp_data(:,8), win, sr, onset, Tstart, Tfinish,rats, latWin,basePeakfr);
 ANALYSIS_FINAL.('zscoreMeanStress') = ZscoreMeanStress;
 ANALYSIS_FINAL.('AUC') = dFAUC;
 ANALYSIS_FINAL.('Peak') = dfPeak;
+ANALYSIS_FINAL.('ResponseWidth') = peakFWHM;
 ANALYSIS_FINAL.('heatmap') = heatmap;
 
 
