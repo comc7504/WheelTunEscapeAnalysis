@@ -38,6 +38,6 @@ To run:
    
    f) ResponseWidth: response width in seconds at half max of the greatest absolute peak (positive or negative).
    
-   g) PosITI: Positive ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb).
+   g) PosITI: Positive ITI peak frequency greater than z-score threshold; (requires FP_sig_spots_mvb).
 
-   h) NegITI: Negative ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb).
+   h) NegITI: Negative ITI peak frequency greater than z-score threshold; (requires FP_sig_spots_mvb).
