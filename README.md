@@ -30,14 +30,14 @@ To run:
 
    b) ZscoreMeanStress: each animal's mean trace from -5s to +5s of event from Tstart to Tfinish, normalized dF (z-score). Time points (x values for graphing purposes) are saved in another workplace matrix called "trig_time".
 
-   c) AUC: each animals area under the curve of mean trace
+   c) AUC: each animals area under the curve of mean trace; negative (left) and positive (right).
 
-   d) Peak: each animals greatest absolute peak amplitude; negative (left) and positive (right)
+   d) Peak: each animals greatest absolute peak amplitude; negative (left) and positive (right).
 
    e) Heatmap: mean of all animals normalized dF (z-score) in heatmap form.
    
    f) ResponseWidth: response width in seconds at half max of the greatest absolute peak (positive or negative).
    
-   g) PosITI: Positive ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb)
+   g) PosITI: Positive ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb).
 
-   h) NegITI: Negative ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb)
+   h) NegITI: Negative ITI peak frequency greater than z-score threshold. (requires FP_sig_spots_mvb).
