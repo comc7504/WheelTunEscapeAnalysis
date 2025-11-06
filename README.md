@@ -1,4 +1,4 @@
-# WheelTunEscapeAnalysis
+# WheelTurnEscapeAnalysis
 Analysis pipeline for wheel turn escape photometry recordings
 
 To run:
