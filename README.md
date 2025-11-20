@@ -4,19 +4,21 @@ Analysis pipeline for wheel turn escape photometry recordings
 To run:
 1. Download script folders and save in a common folder, e.g. PhotoAnalysis.
    
-3. Add an additional folder named "csvfiles". Place each group of photometry subjects' .csvs here before analysis. Be sure that csv columns are aligned as follows: time, 405nm signal, 474nm signal, shock TTL signal, wheel turn TTL signal.
+2. Add an additional folder named "csvfiles". Place each group of photometry subjects' .csvs here before analysis. Be sure that csv columns are aligned as follows: time, 405nm signal, 474nm signal, shock TTL signal, wheel turn TTL signal.
    
-5. Make sure matlab has all folders in the path and the Add Ons:
+3. Make sure MATLAB vR2024b has all folders and subfolders added to the path
+
+4. Include Add Ons:
    
-   a) Signal Processing Toolbox
+   a) Signal Processing Toolbox v24.2
    
-   b) Statistics and Machine Learning Toolbox
+   b) Statistics and Machine Learning Toolbox v24.2
    
-   c) Curve Fitting Toolbox
+   c) Curve Fitting Toolbox v24.2
    
-   d) DSP Sytem Toolbox
+   d) DSP System Toolbox v24.2
    
-6. Open main_psth_mvb.m, saved in UserFunctions Folder
+5. Open main_mvb.m, saved in UserFunctions Folder
    
    a) Set up experiment name (exp), group (gp), and other parameters (run all 100 trials first) if needed. 
    
@@ -24,7 +26,7 @@ To run:
    
    c) The 100 trials data should now be saved in a new folder: CombinedData > "experiment" > "group". To analyze specific trial windows, load up this .m file and adjust trial window with the variables Tstart (start trial), Tfinish (end trial), and re-run FP_psth_mvb in command window.
 
-7. Key Data saved in workspace matrix "ANALYSIS_FINAL":
+6. Key Data saved in workspace matrix "ANALYSIS_FINAL":
 
    a) rats: subject csv names, dates, etc. This order is conserved across data structures. 
 
