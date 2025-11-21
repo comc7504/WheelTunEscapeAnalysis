@@ -8,7 +8,7 @@ disp('ITI Analysis');
 
  %Input
  
- %fp_data(:,8) = trial frame strt,duration, end
+ %fp_data(:,8) = trial frame start,duration, end
  %Tstart is the starting trial
  %Tfinish is the ending trial
  %sigspotWindow is for size of rolling window

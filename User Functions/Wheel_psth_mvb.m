@@ -10,7 +10,7 @@ disp('Wheel Analysis');
  %Input
 
  %fp_data(:,5) is the fitted dF
- %fp_data(:,8) = trial frame strt,duration, end
+ %fp_data(:,8) = trial frame start,duration, end
  %fp_data(:,13) is start frame of wheel bout during trial
  %fp_data(:,15) is start frame of wheel bout during ITI
  %win is the window in frames
@@ -26,7 +26,7 @@ disp('Wheel Analysis');
  %trig_time is evently spaced window in sec with wheel bout start =0
  %ZscoreMeanWheel is meaned analysis for each N for trial interval
 
- %Adds ZscoreMeanWheel for ease of access
+ %Adds ZscoreMeanWheel to workspace for ease of access
  ANALYSIS_FINAL.('zscoreMeanWheel') = ZscoreMeanWheel;
 
  

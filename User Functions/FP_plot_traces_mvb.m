@@ -1,8 +1,8 @@
-%Displays what step
+%Displays the step
 disp('Trace plots');
 
 %Making plot for raw fiber photometry traces
-%Need to process first in load_csvs_mvb
+%requires load_csvs_mvb
 
 % You can define colors by proportion of RGB values (base 255)
 bleu = [0.2157 0.3765 0.5725]; 
@@ -22,10 +22,10 @@ for k = 1:size(rats,1)
     %405_fit trace
     plot(fp_data{k,1}, fp_data{k,3}, 'Color', violet) 
     
-    %465 trace
+    %474 trace
     plot(fp_data{k,1}, fp_data{k,4}, 'Color', bleu)   
 
-    %dF (465-405_fit) trace
+    %dF (474-405_fit) trace
     plot(fp_data{k,1}, fp_data{k,5}, 'Color', verte)  
 
     %Give max time value during test
@@ -45,21 +45,22 @@ for k = 1:size(rats,1)
     %Stress event plots
     plot_events(fp_data{k,9}(:,1), red, 0.3, 'all'); 
 
-    %Approx minutes for x axis
+    %Approx time for x axis
     set(gca,'XTick',0:1000:7000,'XTickLabel',{floor((0:1000:7000)./60)}, 'fontsize',12); 
     
     %Yaxis
     set(gca,'YTick',-0.5:0.5:2,'YTickLabel',{'-0.5', '0', '0.5', '1', '1.5',...
-        '2', 'fontsize',12});
+        '2'},'fontsize',12);
 
     %Labeling
+    title('\bf100 Trials','fontsize',18);
     xlabel('Time (min)','fontsize',14);
-    ylabel('465-405\_fit (dF)','fontsize',14);
+    ylabel('474-405\_fit (dF)','fontsize',14);
     set(gca, 'LineWidth', 0.75);
-    legend({'405\_fit', '465', 'dF'}, 'location', 'northeast')
+    legend({'405\_fit', '474', 'dF'}, 'location', 'northeast')
 
     %name the figure and save to rat folder
-    outP = [destfile 'ES_session_405_465_dF']; 
+    outP = [destfile 'ES_session_405_474_dF']; 
     saveFig(gcf, outP, 'fig');
     saveFig(gcf, outP, 'pdf');
 

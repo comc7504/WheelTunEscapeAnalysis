@@ -28,16 +28,16 @@ meanSignal1 = mean(F405);
 stdSignal1 = std(double(F405))/sqrt(size(F405,1));
 dcSignal1 = mean(meanSignal1);
 
-%same for 465 channel
+%same for 474 channel
 allSignals = cell2mat(source.streams.(STREAM_STORE1).filtered');
-F465 = zeros(size(allSignals(:,1:N:end-N+1)));
+F474 = zeros(size(allSignals(:,1:N:end-N+1)));
 for ii = 1:size(allSignals,1)
-    F465(ii,:) = arrayfun(@(i) mean(allSignals(ii,i:i+N-1)),1:N:length(allSignals)-N+1);
+    F474(ii,:) = arrayfun(@(i) mean(allSignals(ii,i:i+N-1)),1:N:length(allSignals)-N+1);
 end
-minLength2 = size(F465,2);
+minLength2 = size(F474,2);
 
-meanSignal2 = mean(F465);
-stdSignal2 = std(double(F465))/sqrt(size(F465,1));
+meanSignal2 = mean(F474);
+stdSignal2 = std(double(F474))/sqrt(size(F474,1));
 dcSignal2 = mean(meanSignal2);
 
 % make a timerange, fit the trials
@@ -48,17 +48,17 @@ ts2 = TRANGE(1) + (1:minLength2) / source.streams.(STREAM_STORE1).fs*N;
 meanSignal1 = meanSignal1 - dcSignal1;
 meanSignal2 = meanSignal2 - dcSignal2;
 
-%index specified normalization times, grab 465 and 405 data
+%index specified normalization times, grab 474 and 405 data
 idxNorm = ts2(1,:) < normalization(2) & ts2(1,:) > normalization(1);
-F465Norm=F465(:,idxNorm);
+F474Norm=F474(:,idxNorm);
 F405Norm=F405(:,idxNorm);
 
-%for every trial, subtract the linear fit of 405 data onto 465 data within the
-%normalization period from the raw 465 data
-for i = 1:size(F465,1)
-    mxbNorm(i,1:2) = polyfit(F405Norm(i,1:end), F465Norm(i,1:end), 1);
+%for every trial, subtract the linear fit of 405 data onto 474 data within the
+%normalization period from the raw 474 data
+for i = 1:size(F474,1)
+    mxbNorm(i,1:2) = polyfit(F405Norm(i,1:end), F474Norm(i,1:end), 1);
     Y_fit_all(i,:) = mxbNorm(i,1) .* F405(i,:) + mxbNorm(i,2);
-    Y_dF_all(i,:) = F465(i,:) - Y_fit_all(i,:); %dF (for dF/F divide by fit)
+    Y_dF_all(i,:) = F474(i,:) - Y_fit_all(i,:); %dF (for dF/F divide by fit)
 end
 
 %z-score based on normalization period mean and sd

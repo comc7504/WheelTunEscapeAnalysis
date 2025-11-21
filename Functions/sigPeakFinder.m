@@ -17,7 +17,7 @@ function [eventcenter] = sigPeakFinder(ESframe, Tstart, Tfinish, sigspotWindow, 
         error('Please select finish value less than 101');
     end
 
-    % Loop for each rat
+    % Loop for each subject
     for k = 1:size(rats,1)
 
         stressLength = Tfinish - Tstart + 1;

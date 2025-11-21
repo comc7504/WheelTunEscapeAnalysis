@@ -49,14 +49,14 @@ function [anStress,setZscoreMean,trig_time,andFAUC,dfPeak,heattt,tHalfRise,peakF
         %Preallocated for heattt
         heattt = zeros(sizetot,wintot);
          
-        % True for shock, false for wheel in main
+        % True for shock, false for wheel in main_mvb
         norm=true; 
          
         %==============================================
         %        ANALYSIS PER SUBJECT
         %==============================================
         for k = 1:arraySize
-    
+            
             %Runs stress zscore analysis. Output depends on onset logic
             trig_lfpZscore; 
             
@@ -65,6 +65,9 @@ function [anStress,setZscoreMean,trig_time,andFAUC,dfPeak,heattt,tHalfRise,peakF
             
             %Display individual traces
             findpeaks(setZscoreMean(k,:),'MinPeakDistance', window-1);
+            xlabel('Frames','fontsize',14);
+            ylabel('474-405\_fit (dF)','fontsize',14);
+            title('\bfPeaks','fontsize',18);
             pause(1);
            
             % --- Time to half-max rise & FWHM ---
@@ -138,11 +141,11 @@ function [anStress,setZscoreMean,trig_time,andFAUC,dfPeak,heattt,tHalfRise,peakF
 
         findpeaks(mean(setZscoreMean(:,window+1:wintot)),'MinPeakDistance', window-1); 
         pause(1);
-    
+
         %Finds max for pos and neg peaks after 0
         [posP,plocs]=findpeaks(mean(setZscoreMean(:,window+1:wintot)),'MinPeakDistance', window-1);
         [negP,nlocs]=findpeaks(-mean(setZscoreMean(:,window+1:wintot)),'MinPeakDistance', window-1);
-       
+
         if (posP>negP)
             dfPeak (1:arraySize,2)= setZscoreMean(:,plocs + window);
         else 
@@ -150,11 +153,11 @@ function [anStress,setZscoreMean,trig_time,andFAUC,dfPeak,heattt,tHalfRise,peakF
             dfPeak (1:arraySize,2)= setZscoreMean(:,nlocs + window);
             end
         end 
-       
+
         %Finds max for pos and neg peaks before 0
         [posB,plocsB]=findpeaks(mean(setZscoreMean(:,window-basePeak:window)),'MinPeakDistance', basePeak - 1);
         [negB,nlocsB]=findpeaks(-mean(setZscoreMean(:,window-basePeak:window)),'MinPeakDistance', basePeak - 1);
-    
+
         if (posB>negB)
             dfPeak (1:arraySize,1) = setZscoreMean(:,plocsB + window-basePeak);
         else

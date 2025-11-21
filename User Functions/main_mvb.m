@@ -1,13 +1,13 @@
 %Final/important end values found in "ANALYSIS_FINAL" :)
 
 clear
-exp = 'PL-DMSiCaMP';                % Define experiment / folder for results
-gp = 'mCh';                    % Define analysis group
+exp = 'PL Hsyn';            % Define experiment / folder for results
+gp = 'ES';                     % Define analysis group
 
-sr = 30;                        % Set your down-sampling rate, frames per second
+sr = 30;                        % Set your down-sampling rate, frames per second (39 to match camera)
 win = 5*sr;                     % Frames before and after event (not the sum of b&after)
 sig_crit = 2;                   % z-score criteria for sig_spot events
-onset= true;                     %True means onset is on
+onset= true;                    %True means psth runs on shock onset
 
 ITIb= true;                     %True means wheel mvb runs during ITI
 
